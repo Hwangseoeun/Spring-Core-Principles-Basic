@@ -1,17 +1,25 @@
 package springCorePrinciples.basic.order;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import springCorePrinciples.basic.AppConfig;
 import springCorePrinciples.basic.member.Grade;
 import springCorePrinciples.basic.member.Member;
 import springCorePrinciples.basic.member.MemberService;
-import springCorePrinciples.basic.member.MemberServiceImpl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class OrderServiceTest {
 
-    final MemberService memberService = new MemberServiceImpl();
-    final OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        final AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {
