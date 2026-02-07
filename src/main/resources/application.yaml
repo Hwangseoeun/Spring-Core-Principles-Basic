@@ -1,3 +1,5 @@
 spring:
   application:
     name: basic
+  main:
+    allow-bean-definition-overriding: false    # 스프링 빈 네임이 중복 시 오버라이딩 할 지 여부를 선택하는 옵션
