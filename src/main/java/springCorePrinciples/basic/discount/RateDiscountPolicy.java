@@ -1,8 +1,10 @@
 package springCorePrinciples.basic.discount;
 
+import org.springframework.stereotype.Component;
 import springCorePrinciples.basic.member.Grade;
 import springCorePrinciples.basic.member.Member;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;
