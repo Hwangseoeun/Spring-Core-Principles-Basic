@@ -9,24 +9,8 @@ import springCorePrinciples.basic.member.MemberRepository;
 @Component
 public class OrderServiceImpl implements OrderService {
 
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
-
-    @Autowired
-    public void setMemberRepository(final MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
-
-    @Autowired
-    public void setDiscountPolicy(final DiscountPolicy discountPolicy) {
-        this.discountPolicy = discountPolicy;
-    }
-
-    //    @Autowired
-/*    public OrderServiceImpl(final MemberRepository memberRepository, final DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }*/
+    @Autowired private MemberRepository memberRepository;
+    @Autowired private DiscountPolicy discountPolicy;
 
     @Override
     public Order createOrder(final Long memberId, final String itemName, final int itemPrice) {

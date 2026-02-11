@@ -9,7 +9,6 @@ import springCorePrinciples.basic.member.MemberService;
 import springCorePrinciples.basic.member.MemberServiceImpl;
 import springCorePrinciples.basic.member.MemoryMemberRepository;
 import springCorePrinciples.basic.order.OrderService;
-import springCorePrinciples.basic.order.OrderServiceImpl;
 
 // @Configuration 어노테이션이 붙지 않으면 CGLIB 기술이 스프링 빈에 등록되는 것이 아닌, 순수한 AppConfig가 스프링 빈으로 등록됨
 @Configuration
@@ -22,7 +21,8 @@ public class AppConfig {
 
     @Bean
     public OrderService orderService() {
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        return null;
     }
 
     @Bean
