@@ -1,6 +1,7 @@
 package springCorePrinciples.basic.order;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import springCorePrinciples.basic.discount.DiscountPolicy;
 import springCorePrinciples.basic.member.Member;
@@ -13,9 +14,9 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(final MemberRepository memberRepository, final DiscountPolicy rateDiscountPolicy) {
+    public OrderServiceImpl(final MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") final DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
-        this.discountPolicy = rateDiscountPolicy;
+        this.discountPolicy = discountPolicy;
     }
 
     @Override
